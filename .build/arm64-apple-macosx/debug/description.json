@@ -1,0 +1,349 @@
+{
+  "builtTestProducts" : [
+
+  ],
+  "copyCommands" : {
+
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.DesktopPet-arm64-apple-macosx15.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/sources",
+      "importPath" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/App.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/BallPanel.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/PetPanel.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/PetView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/PetViewModel.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/StatusBarMenu.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/sources"
+        }
+      ],
+      "isLibrary" : false,
+      "moduleName" : "DesktopPet",
+      "moduleOutputPath" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Modules/DesktopPet.swiftmodule",
+      "objects" : [
+        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/App.swift.o",
+        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/BallPanel.swift.o",
+        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/PetPanel.swift.o",
+        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/PetView.swift.o",
+        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/PetViewModel.swift.o",
+        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/StatusBarMenu.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx13.0",
+        "-enable-batch-mode",
+        "-index-store-path",
+        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j14",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-module-cache-path",
+        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-Xfrontend",
+        "-entry-point-function-name",
+        "-Xfrontend",
+        "DesktopPet_main",
+        "-color-diagnostics",
+        "-swift-version",
+        "5",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "desktoppet"
+      ],
+      "outputFileMapPath" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/App.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/BallPanel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/PetPanel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/PetView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/PetViewModel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/StatusBarMenu.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Modules/DesktopPet.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/App.swift",
+        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/BallPanel.swift",
+        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/PetPanel.swift",
+        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/PetView.swift",
+        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/PetViewModel.swift",
+        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/StatusBarMenu.swift"
+      ],
+      "tempsPath" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build",
+      "wholeModuleOptimization" : false
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "DesktopPet" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "DesktopPet",
+      "-package-name",
+      "desktoppet",
+      "-incremental",
+      "-c",
+      "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/App.swift",
+      "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/BallPanel.swift",
+      "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/PetPanel.swift",
+      "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/PetView.swift",
+      "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/PetViewModel.swift",
+      "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/StatusBarMenu.swift",
+      "-I",
+      "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx13.0",
+      "-enable-batch-mode",
+      "-index-store-path",
+      "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j14",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-module-cache-path",
+      "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-Xfrontend",
+      "-entry-point-function-name",
+      "-Xfrontend",
+      "DesktopPet_main",
+      "-color-diagnostics",
+      "-swift-version",
+      "5",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.5.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "desktoppet",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "DesktopPet" : [
+
+    ]
+  },
+  "testDiscoveryCommands" : {
+
+  },
+  "testEntryPointCommands" : {
+
+  },
+  "traitConfiguration" : {
+    "enableAllTraits" : false
+  },
+  "writeCommands" : {
+    "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet-entitlement.plist" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<entitlement-plist>"
+        },
+        {
+          "kind" : "virtual",
+          "name" : "<com.apple.security.get-task-allow>"
+        }
+      ],
+      "outputFilePath" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet-entitlement.plist"
+    },
+    "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/App.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/BallPanel.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/PetPanel.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/PetView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/PetViewModel.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/StatusBarMenu.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/sources"
+    },
+    "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/App.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/BallPanel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/PetPanel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/PetView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/PetViewModel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/StatusBarMenu.swift.o"
+        }
+      ],
+      "outputFilePath" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.product/Objects.LinkFileList"
+    },
+    "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+    }
+  }
+}
