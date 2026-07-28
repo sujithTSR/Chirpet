@@ -104,6 +104,10 @@ public class PetViewModel: ObservableObject {
     @Published public var scheduledTasks: [ScheduledTask] = []
     @Published public var activeReminderTask: ScheduledTask? = nil
     
+    // Demo Mode flag & timer
+    public var isDemoMode: Bool = false
+    private var demoCancellable: AnyCancellable?
+    
     public var currentPos: CGPoint = CGPoint(x: 500, y: 500)
     public var targetPos: CGPoint = CGPoint(x: 500, y: 500)
     
@@ -116,6 +120,50 @@ public class PetViewModel: ObservableObject {
     
     public init() {
         startTimer(fps: 30.0)
+    }
+    
+    // MARK: - Automated Polished Demo Sequence (20s)
+    
+    public func startDemoMode() {
+        isDemoMode = true
+        print("🎬 Starting 20-second polished demo sequence...")
+        var demoTick = 0
+        
+        guard let screen = NSScreen.main else { return }
+        let bounds = screen.visibleFrame
+        let midX = bounds.midX
+        let midY = bounds.midY
+        
+        demoCancellable = Timer.publish(every: 1.0 / 30.0, on: .main, in: .common)
+            .autoconnect()
+            .sink { [weak self] _ in
+                guard let self = self else { return }
+                demoTick += 1
+                let seconds = Double(demoTick) / 30.0
+                
+                // 1. Follow Cursor Smooth Movement (0s - 5s)
+                if seconds < 5.0 {
+                    self.state = .active
+                    let angle = seconds * 1.8
+                    self.targetPos = CGPoint(x: midX + cos(angle) * 320, y: midY + sin(angle) * 180)
+                }
+                // 2. Throw and Fetch Ball (5s - 12s)
+                else if seconds >= 5.0 && seconds < 5.05 {
+                    self.state = .catchGame
+                    self.throwBallFar()
+                }
+                // 3. Create Reminder & Rest at Home (12s - 16s)
+                else if seconds >= 12.0 && seconds < 12.05 {
+                    self.state = .home
+                    self.addScheduledTask(title: "Stand Up & Stretch 🧘", recurrence: .oneTime, delaySeconds: 4.0)
+                }
+                // 4. Pet Wakes Up when Reminder Fires (16s - 21s)
+                else if seconds >= 21.0 {
+                    print("🎬 Demo sequence complete.")
+                    self.demoCancellable?.cancel()
+                    NSApplication.shared.terminate(nil)
+                }
+            }
     }
     
     // MARK: - Adaptive Timer Engine (CPU & Battery Optimization)
@@ -131,13 +179,14 @@ public class PetViewModel: ObservableObject {
     }
     
     private func adjustTimerRateIfNeeded() {
+        if isDemoMode { return }
         let desiredFPS: Double
         if state == .disabled && activeReminderTask == nil {
-            desiredFPS = 1.0 // 1 FPS when disabled (near 0% CPU!)
+            desiredFPS = 1.0
         } else if isSleeping {
-            desiredFPS = 5.0 // 5 FPS when sleeping at home (83% CPU reduction)
+            desiredFPS = 5.0
         } else {
-            desiredFPS = 30.0 // 30 FPS when active or playing catch
+            desiredFPS = 30.0
         }
         
         if abs(desiredFPS - currentFPS) > 0.1 {
@@ -191,7 +240,6 @@ public class PetViewModel: ObservableObject {
     private func update() {
         frameCounter += 1
         
-        // Task Scheduler check loop (runs once per second equivalent)
         let checkFrequency = Int(currentFPS)
         if frameCounter % max(checkFrequency, 1) == 0 {
             checkScheduledTasks()
@@ -206,13 +254,14 @@ public class PetViewModel: ObservableObject {
             animationFrame = (animationFrame + 1) % 4
         }
         
-        // Poll mouse location only when active/catching
-        let mouseLoc = (state == .active || state == .catchGame) ? NSEvent.mouseLocation : .zero
+        let mouseLoc = (!isDemoMode && (state == .active || state == .catchGame)) ? NSEvent.mouseLocation : .zero
         
         // Update physics & targets based on mode
         switch state {
         case .active:
-            targetPos = CGPoint(x: mouseLoc.x + 20, y: mouseLoc.y - 20)
+            if !isDemoMode {
+                targetPos = CGPoint(x: mouseLoc.x + 20, y: mouseLoc.y - 20)
+            }
             isSleeping = false
             
         case .catchGame:
@@ -220,7 +269,9 @@ public class PetViewModel: ObservableObject {
             
             switch fetchPhase {
             case .idle:
-                targetPos = CGPoint(x: mouseLoc.x + 20, y: mouseLoc.y - 20)
+                if !isDemoMode {
+                    targetPos = CGPoint(x: mouseLoc.x + 20, y: mouseLoc.y - 20)
+                }
                 
             case .ballFlying:
                 if let target = ballTargetPos, let currentBall = ballPos {
@@ -283,7 +334,8 @@ public class PetViewModel: ObservableObject {
                 }
                 
             case .returningToCursor:
-                targetPos = CGPoint(x: mouseLoc.x + 20, y: mouseLoc.y - 20)
+                let dest = isDemoMode ? CGPoint(x: 800, y: 500) : CGPoint(x: mouseLoc.x + 20, y: mouseLoc.y - 20)
+                targetPos = dest
                 let distToCursor = hypot(targetPos.x - currentPos.x, targetPos.y - currentPos.y)
                 if distToCursor < 35 {
                     isHoldingBall = false
@@ -360,10 +412,8 @@ public class PetViewModel: ObservableObject {
         for idx in scheduledTasks.indices {
             let task = scheduledTasks[idx]
             if task.isEnabled && !task.isCompleted && now >= task.dueDate {
-                // Trigger reminder!
                 triggerTaskReminder(task)
                 
-                // Update recurrence or completion
                 switch task.recurrence {
                 case .oneTime:
                     scheduledTasks[idx].isCompleted = true
@@ -379,7 +429,6 @@ public class PetViewModel: ObservableObject {
         activeReminderTask = task
         statusMessage = "⏰ REMINDER: \(task.title)"
         
-        // Auto-wake pet if sleeping or hidden
         if state == .disabled || state == .home {
             state = .active
         }
@@ -494,7 +543,7 @@ public class PetViewModel: ObservableObject {
     }
     
     private func spawnParticle(symbol: String, xOffset: CGFloat, yOffset: CGFloat) {
-        guard particles.count < 25 else { return } // Memory cap optimization
+        guard particles.count < 25 else { return }
         let p = Particle(
             x: currentPos.x + xOffset,
             y: currentPos.y + yOffset,

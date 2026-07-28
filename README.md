@@ -1,6 +1,27 @@
 # 🐾 Chirpet - Native macOS Floating Companion & Fetch Game
 
+![Chirpet Live Demo](docs/assets/demo.gif)
+
 > A vibrant, interactive, transparent macOS desktop pet companion built natively with **Swift**, **AppKit**, and **SwiftUI**. Your pet floats over all desktop windows and virtual spaces, follows your mouse pointer, fetches tennis balls across your screen, carries text notes, reminds you of scheduled tasks, and rests cozy in screen corners!
+
+---
+
+## 🗺️ Roadmap & Future Development
+
+**Chirpet** is an active open-source project crafted out of love for desktop companions and native macOS development. Here is what is planned for future releases:
+
+- [ ] **Expanded Pet Characters**: Panda (🐼), Shiba Inu (🐕), Red Panda (🦊), and Penguin (🐧).
+- [ ] **Voice Memos & Custom Audio**: Record voice notes for task reminders and attach custom sound packs.
+- [ ] **Wearable Pet Accessories**: Customizable hats, glasses, and bowties.
+- [ ] **Interactive Desktop Toys**: Laser pointer tool, squeaky balls, and treats.
+- [ ] **Apple Calendar & Reminders Integration**: Sync scheduled tasks directly with native macOS Calendar and System Reminders.
+- [ ] **Multi-Pet Support**: Option to keep multiple companions on your desktop interacting with each other.
+
+---
+
+## ⭐ Support the Project
+
+If **Chirpet** brought a smile to your face or made your workday a little more cheerful, consider dropping a ⭐️ **star on GitHub**. It helps more macOS users discover the project and inspires continued open-source development!
 
 ---
 
@@ -63,15 +84,9 @@ Chirpet/
 ├── README.md                   # Documentation & Features Showcase
 ├── Chirpet.app                 # Standalone macOS Application Bundle
 ├── Chirpet.dmg                 # Disk Image Installer
-└── Sources/
-    └── Chirpet/
-        ├── App.swift           # Application entry point (@main) & NSApplicationDelegate
-        ├── ScheduledTask.swift # Task scheduling data model (One-Time vs Repetitive)
-        ├── PetPanel.swift      # Borderless transparent NSPanel with precise hit-testing
-        ├── BallPanel.swift     # Standalone floating tennis ball window & spin animation
-        ├── PetViewModel.swift  # Core state machine, task engine, lerp physics, adaptive timer
-        ├── PetView.swift       # SwiftUI avatar vector graphics & Task Reminder Banner
-        └── StatusBarMenu.swift # macOS Menu Bar Status Item (NSStatusItem), Combine observer
+└── docs/
+    └── assets/
+        └── demo.gif            # Promotion-ready 20-second high-definition demo animation
 ```
 
 ---

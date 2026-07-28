@@ -1,0 +1,29 @@
+# SwiftPM Build Artifacts & Caches
+.build/
+.swiftpm/
+
+# Xcode & IDE User Files
+*.xcodeproj/
+*.xcworkspace/
+xcuserdata/
+DerivedData/
+.idea/
+.vscode/
+
+# Local Scripts & Scratch Files
+record_demo.py
+scratch_frames/
+dmg_stage/
+*.log
+
+# macOS System Files
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Trashes
+
+# Temporary & Swap Files
+*.swp
+*~
+*.tmp

@@ -31,6 +31,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         statusBarController = StatusBarMenuController(viewModel: viewModel)
         
+        if CommandLine.arguments.contains("--demo") {
+            viewModel.startDemoMode()
+        }
+        
         print("🐾 macOS Chirpet started successfully!")
     }
     
