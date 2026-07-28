@@ -22,6 +22,38 @@ public struct PetView: View {
             }
             
             VStack(spacing: 2) {
+                // Active Reminder Alert Banner
+                if let reminder = viewModel.activeReminderTask {
+                    HStack(spacing: 5) {
+                        Text("⏰")
+                            .font(.system(size: 11))
+                        VStack(alignment: .leading, spacing: 0) {
+                            Text("REMINDER")
+                                .font(.system(size: 7, weight: .bold))
+                                .foregroundColor(.orange)
+                            Text(reminder.title)
+                                .font(.system(size: 10, weight: .bold, design: .rounded))
+                                .lineLimit(2)
+                                .foregroundColor(.primary)
+                        }
+                        Button(action: {
+                            viewModel.dismissActiveReminder()
+                        }) {
+                            Image(systemName: "checkmark.circle.fill")
+                                .font(.system(size: 14))
+                                .foregroundColor(.green)
+                        }
+                        .buttonStyle(.plain)
+                    }
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 4)
+                    .background(.regularMaterial)
+                    .clipShape(Capsule())
+                    .overlay(Capsule().stroke(Color.orange.opacity(0.8), lineWidth: 1.5))
+                    .shadow(color: .black.opacity(0.3), radius: 4)
+                    .transition(.scale.combined(with: .opacity))
+                }
+                
                 // Speech / Note / Status Bubble
                 if !viewModel.noteText.isEmpty {
                     HStack(spacing: 4) {

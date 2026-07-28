@@ -1,0 +1,47 @@
+{
+  "": {
+    "swift-dependencies": "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/master.swiftdeps"
+  },
+  "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/App.swift": {
+    "dependencies": "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/App.d",
+    "object": "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/App.swift.o",
+    "swiftmodule": "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/App~partial.swiftmodule",
+    "swift-dependencies": "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/App.swiftdeps"
+  },
+  "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/BallPanel.swift": {
+    "dependencies": "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/BallPanel.d",
+    "object": "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/BallPanel.swift.o",
+    "swiftmodule": "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/BallPanel~partial.swiftmodule",
+    "swift-dependencies": "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/BallPanel.swiftdeps"
+  },
+  "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/PetPanel.swift": {
+    "dependencies": "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/PetPanel.d",
+    "object": "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/PetPanel.swift.o",
+    "swiftmodule": "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/PetPanel~partial.swiftmodule",
+    "swift-dependencies": "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/PetPanel.swiftdeps"
+  },
+  "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/PetView.swift": {
+    "dependencies": "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/PetView.d",
+    "object": "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/PetView.swift.o",
+    "swiftmodule": "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/PetView~partial.swiftmodule",
+    "swift-dependencies": "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/PetView.swiftdeps"
+  },
+  "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/PetViewModel.swift": {
+    "dependencies": "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/PetViewModel.d",
+    "object": "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/PetViewModel.swift.o",
+    "swiftmodule": "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/PetViewModel~partial.swiftmodule",
+    "swift-dependencies": "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/PetViewModel.swiftdeps"
+  },
+  "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/ScheduledTask.swift": {
+    "dependencies": "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/ScheduledTask.d",
+    "object": "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/ScheduledTask.swift.o",
+    "swiftmodule": "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/ScheduledTask~partial.swiftmodule",
+    "swift-dependencies": "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/ScheduledTask.swiftdeps"
+  },
+  "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/StatusBarMenu.swift": {
+    "dependencies": "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/StatusBarMenu.d",
+    "object": "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/StatusBarMenu.swift.o",
+    "swiftmodule": "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/StatusBarMenu~partial.swiftmodule",
+    "swift-dependencies": "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/StatusBarMenu.swiftdeps"
+  }
+}

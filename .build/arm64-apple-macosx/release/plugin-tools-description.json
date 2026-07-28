@@ -44,6 +44,10 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/ScheduledTask.swift"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/StatusBarMenu.swift"
         },
         {
@@ -64,6 +68,7 @@
         "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/release/Chirpet.build/PetPanel.swift.o",
         "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/release/Chirpet.build/PetView.swift.o",
         "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/release/Chirpet.build/PetViewModel.swift.o",
+        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/release/Chirpet.build/ScheduledTask.swift.o",
         "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/release/Chirpet.build/StatusBarMenu.swift.o"
       ],
       "otherArguments" : [
@@ -135,6 +140,10 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/release/Chirpet.build/ScheduledTask.swift.o"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/release/Chirpet.build/StatusBarMenu.swift.o"
         },
         {
@@ -149,6 +158,7 @@
         "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/PetPanel.swift",
         "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/PetView.swift",
         "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/PetViewModel.swift",
+        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/ScheduledTask.swift",
         "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/StatusBarMenu.swift"
       ],
       "tempsPath" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/release/Chirpet.build",
@@ -174,6 +184,7 @@
       "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/PetPanel.swift",
       "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/PetView.swift",
       "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/PetViewModel.swift",
+      "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/ScheduledTask.swift",
       "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/StatusBarMenu.swift",
       "-I",
       "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/release/Modules",
@@ -268,6 +279,10 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/ScheduledTask.swift"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/StatusBarMenu.swift"
         }
       ],
@@ -299,6 +314,10 @@
         {
           "kind" : "file",
           "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/release/Chirpet.build/PetViewModel.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/release/Chirpet.build/ScheduledTask.swift.o"
         },
         {
           "kind" : "file",

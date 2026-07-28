@@ -17,34 +17,38 @@
 
   ],
   "swiftCommands" : {
-    "C.DesktopPet-arm64-apple-macosx15.0-debug.module" : {
+    "C.Chirpet-arm64-apple-macosx15.0-debug.module" : {
       "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
-      "fileList" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/sources",
+      "fileList" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/sources",
       "importPath" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Modules",
       "inputs" : [
         {
           "kind" : "file",
-          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/App.swift"
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/App.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/BallPanel.swift"
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/BallPanel.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/PetPanel.swift"
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/PetPanel.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/PetView.swift"
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/PetView.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/PetViewModel.swift"
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/PetViewModel.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/StatusBarMenu.swift"
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/ScheduledTask.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/StatusBarMenu.swift"
         },
         {
           "kind" : "file",
@@ -52,19 +56,20 @@
         },
         {
           "kind" : "file",
-          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/sources"
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/sources"
         }
       ],
       "isLibrary" : false,
-      "moduleName" : "DesktopPet",
-      "moduleOutputPath" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Modules/DesktopPet.swiftmodule",
+      "moduleName" : "Chirpet",
+      "moduleOutputPath" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Modules/Chirpet.swiftmodule",
       "objects" : [
-        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/App.swift.o",
-        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/BallPanel.swift.o",
-        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/PetPanel.swift.o",
-        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/PetView.swift.o",
-        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/PetViewModel.swift.o",
-        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/StatusBarMenu.swift.o"
+        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/App.swift.o",
+        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/BallPanel.swift.o",
+        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/PetPanel.swift.o",
+        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/PetView.swift.o",
+        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/PetViewModel.swift.o",
+        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/ScheduledTask.swift.o",
+        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/StatusBarMenu.swift.o"
       ],
       "otherArguments" : [
         "-target",
@@ -83,7 +88,7 @@
         "-Xfrontend",
         "-entry-point-function-name",
         "-Xfrontend",
-        "DesktopPet_main",
+        "Chirpet_main",
         "-color-diagnostics",
         "-swift-version",
         "5",
@@ -117,47 +122,52 @@
         "-package-name",
         "desktoppet"
       ],
-      "outputFileMapPath" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/output-file-map.json",
+      "outputFileMapPath" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/output-file-map.json",
       "outputs" : [
         {
           "kind" : "file",
-          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/App.swift.o"
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/App.swift.o"
         },
         {
           "kind" : "file",
-          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/BallPanel.swift.o"
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/BallPanel.swift.o"
         },
         {
           "kind" : "file",
-          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/PetPanel.swift.o"
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/PetPanel.swift.o"
         },
         {
           "kind" : "file",
-          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/PetView.swift.o"
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/PetView.swift.o"
         },
         {
           "kind" : "file",
-          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/PetViewModel.swift.o"
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/PetViewModel.swift.o"
         },
         {
           "kind" : "file",
-          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/StatusBarMenu.swift.o"
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/ScheduledTask.swift.o"
         },
         {
           "kind" : "file",
-          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Modules/DesktopPet.swiftmodule"
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/StatusBarMenu.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Modules/Chirpet.swiftmodule"
         }
       ],
       "prepareForIndexing" : false,
       "sources" : [
-        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/App.swift",
-        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/BallPanel.swift",
-        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/PetPanel.swift",
-        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/PetView.swift",
-        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/PetViewModel.swift",
-        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/StatusBarMenu.swift"
+        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/App.swift",
+        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/BallPanel.swift",
+        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/PetPanel.swift",
+        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/PetView.swift",
+        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/PetViewModel.swift",
+        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/ScheduledTask.swift",
+        "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/StatusBarMenu.swift"
       ],
-      "tempsPath" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build",
+      "tempsPath" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build",
       "wholeModuleOptimization" : false
     }
   },
@@ -165,20 +175,21 @@
 
   },
   "swiftTargetScanArgs" : {
-    "DesktopPet" : [
+    "Chirpet" : [
       "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
       "-module-name",
-      "DesktopPet",
+      "Chirpet",
       "-package-name",
       "desktoppet",
       "-incremental",
       "-c",
-      "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/App.swift",
-      "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/BallPanel.swift",
-      "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/PetPanel.swift",
-      "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/PetView.swift",
-      "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/PetViewModel.swift",
-      "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/StatusBarMenu.swift",
+      "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/App.swift",
+      "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/BallPanel.swift",
+      "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/PetPanel.swift",
+      "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/PetView.swift",
+      "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/PetViewModel.swift",
+      "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/ScheduledTask.swift",
+      "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/StatusBarMenu.swift",
       "-I",
       "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Modules",
       "-target",
@@ -197,7 +208,7 @@
       "-Xfrontend",
       "-entry-point-function-name",
       "-Xfrontend",
-      "DesktopPet_main",
+      "Chirpet_main",
       "-color-diagnostics",
       "-swift-version",
       "5",
@@ -235,7 +246,7 @@
     ]
   },
   "targetDependencyMap" : {
-    "DesktopPet" : [
+    "Chirpet" : [
 
     ]
   },
@@ -249,7 +260,7 @@
     "enableAllTraits" : false
   },
   "writeCommands" : {
-    "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet-entitlement.plist" : {
+    "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet-entitlement.plist" : {
       "alwaysOutOfDate" : false,
       "inputs" : [
         {
@@ -261,9 +272,9 @@
           "name" : "<com.apple.security.get-task-allow>"
         }
       ],
-      "outputFilePath" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet-entitlement.plist"
+      "outputFilePath" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet-entitlement.plist"
     },
-    "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/sources" : {
+    "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/sources" : {
       "alwaysOutOfDate" : false,
       "inputs" : [
         {
@@ -272,32 +283,36 @@
         },
         {
           "kind" : "file",
-          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/App.swift"
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/App.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/BallPanel.swift"
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/BallPanel.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/PetPanel.swift"
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/PetPanel.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/PetView.swift"
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/PetView.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/PetViewModel.swift"
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/PetViewModel.swift"
         },
         {
           "kind" : "file",
-          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/StatusBarMenu.swift"
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/ScheduledTask.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/StatusBarMenu.swift"
         }
       ],
-      "outputFilePath" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/sources"
+      "outputFilePath" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/sources"
     },
-    "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.product/Objects.LinkFileList" : {
+    "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.product/Objects.LinkFileList" : {
       "alwaysOutOfDate" : false,
       "inputs" : [
         {
@@ -306,30 +321,34 @@
         },
         {
           "kind" : "file",
-          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/App.swift.o"
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/App.swift.o"
         },
         {
           "kind" : "file",
-          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/BallPanel.swift.o"
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/BallPanel.swift.o"
         },
         {
           "kind" : "file",
-          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/PetPanel.swift.o"
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/PetPanel.swift.o"
         },
         {
           "kind" : "file",
-          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/PetView.swift.o"
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/PetView.swift.o"
         },
         {
           "kind" : "file",
-          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/PetViewModel.swift.o"
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/PetViewModel.swift.o"
         },
         {
           "kind" : "file",
-          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.build/StatusBarMenu.swift.o"
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/ScheduledTask.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.build/StatusBarMenu.swift.o"
         }
       ],
-      "outputFilePath" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/DesktopPet.product/Objects.LinkFileList"
+      "outputFilePath" : "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/Chirpet.product/Objects.LinkFileList"
     },
     "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt" : {
       "alwaysOutOfDate" : true,

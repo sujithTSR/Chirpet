@@ -100,27 +100,54 @@ public class PetViewModel: ObservableObject {
     @Published public var noteText: String = ""
     @Published public var soundEnabled: Bool = true
     
+    // Scheduled Tasks & Reminders
+    @Published public var scheduledTasks: [ScheduledTask] = []
+    @Published public var activeReminderTask: ScheduledTask? = nil
+    
     public var currentPos: CGPoint = CGPoint(x: 500, y: 500)
     public var targetPos: CGPoint = CGPoint(x: 500, y: 500)
     
     private var timer: AnyCancellable?
     private var frameCounter: Int = 0
+    private var currentFPS: Double = 30.0
+    
     public weak var window: NSWindow?
     public weak var ballWindow: NSWindow?
     
     public init() {
-        startLoop()
+        startTimer(fps: 30.0)
     }
     
-    private func startLoop() {
-        timer = Timer.publish(every: 1.0 / 30.0, on: .main, in: .common)
+    // MARK: - Adaptive Timer Engine (CPU & Battery Optimization)
+    
+    private func startTimer(fps: Double) {
+        currentFPS = fps
+        timer?.cancel()
+        timer = Timer.publish(every: 1.0 / fps, on: .main, in: .common)
             .autoconnect()
             .sink { [weak self] _ in
                 self?.update()
             }
     }
     
+    private func adjustTimerRateIfNeeded() {
+        let desiredFPS: Double
+        if state == .disabled && activeReminderTask == nil {
+            desiredFPS = 1.0 // 1 FPS when disabled (near 0% CPU!)
+        } else if isSleeping {
+            desiredFPS = 5.0 // 5 FPS when sleeping at home (83% CPU reduction)
+        } else {
+            desiredFPS = 30.0 // 30 FPS when active or playing catch
+        }
+        
+        if abs(desiredFPS - currentFPS) > 0.1 {
+            startTimer(fps: desiredFPS)
+        }
+    }
+    
     private func onStateChanged() {
+        adjustTimerRateIfNeeded()
+        
         switch state {
         case .active:
             isSleeping = false
@@ -162,14 +189,25 @@ public class PetViewModel: ObservableObject {
     }
     
     private func update() {
-        guard state != .disabled else { return }
-        
         frameCounter += 1
-        if frameCounter % 6 == 0 {
+        
+        // Task Scheduler check loop (runs once per second equivalent)
+        let checkFrequency = Int(currentFPS)
+        if frameCounter % max(checkFrequency, 1) == 0 {
+            checkScheduledTasks()
+        }
+        
+        adjustTimerRateIfNeeded()
+        
+        guard state != .disabled || activeReminderTask != nil else { return }
+        
+        let frameMod = max(Int(currentFPS / 5.0), 1)
+        if frameCounter % frameMod == 0 {
             animationFrame = (animationFrame + 1) % 4
         }
         
-        let mouseLoc = NSEvent.mouseLocation
+        // Poll mouse location only when active/catching
+        let mouseLoc = (state == .active || state == .catchGame) ? NSEvent.mouseLocation : .zero
         
         // Update physics & targets based on mode
         switch state {
@@ -185,21 +223,18 @@ public class PetViewModel: ObservableObject {
                 targetPos = CGPoint(x: mouseLoc.x + 20, y: mouseLoc.y - 20)
                 
             case .ballFlying:
-                // STEP 1: Ball glides smoothly across desktop; pet stands eager & watches!
                 if let target = ballTargetPos, let currentBall = ballPos {
                     let bdx = target.x - currentBall.x
                     let bdy = target.y - currentBall.y
                     let bdist = hypot(bdx, bdy)
                     
                     facingLeft = bdx < 0
-                    targetPos = currentPos // Stay in place watching ball flight
+                    targetPos = currentPos
                     
-                    if bdist > 12 {
-                        // Smooth, readable gliding speed across desktop
+                    if bdist > 10 {
                         ballPos = CGPoint(x: currentBall.x + bdx * 0.08, y: currentBall.y + bdy * 0.08)
                     } else {
                         ballPos = target
-                        // Ball landed! Enter 0.8s reaction gap
                         let pauseUntil = Date().addingTimeInterval(0.8)
                         fetchPhase = .reactionPause(until: pauseUntil)
                         statusMessage = "Ball landed! Ready to sprint! 🎾"
@@ -208,7 +243,6 @@ public class PetViewModel: ObservableObject {
                 }
                 
             case .reactionPause(let until):
-                // STEP 2: Gap pause after ball lands so user sees pet get ready!
                 targetPos = currentPos
                 if Date() >= until {
                     fetchPhase = .sprintingToBall
@@ -216,7 +250,6 @@ public class PetViewModel: ObservableObject {
                 }
                 
             case .sprintingToBall:
-                // STEP 3: Pet sprints full speed to fetch the ball!
                 if let ball = ballPos {
                     targetPos = ball
                     let distToBall = hypot(ball.x - currentPos.x, ball.y - currentPos.y)
@@ -234,7 +267,6 @@ public class PetViewModel: ObservableObject {
                         spawnParticle(symbol: "🎾", xOffset: 0, yOffset: 30)
                         spawnParticle(symbol: "💖", xOffset: 15, yOffset: 20)
                         
-                        // Pick-up pause gap so user sees pet holding ball!
                         let pauseUntil = Date().addingTimeInterval(0.7)
                         fetchPhase = .pickUpPause(until: pauseUntil)
                         statusMessage = "Got the ball! Score: \(fetchScore) 🎾"
@@ -244,7 +276,6 @@ public class PetViewModel: ObservableObject {
                 }
                 
             case .pickUpPause(let until):
-                // STEP 4: Gap pause with ball in mouth before returning!
                 targetPos = currentPos
                 if Date() >= until {
                     fetchPhase = .returningToCursor
@@ -252,7 +283,6 @@ public class PetViewModel: ObservableObject {
                 }
                 
             case .returningToCursor:
-                // STEP 5: Pet carries ball back to mouse cursor
                 targetPos = CGPoint(x: mouseLoc.x + 20, y: mouseLoc.y - 20)
                 let distToCursor = hypot(targetPos.x - currentPos.x, targetPos.y - currentPos.y)
                 if distToCursor < 35 {
@@ -295,7 +325,7 @@ public class PetViewModel: ObservableObject {
         }
         
         // Update NSWindow frame position for Pet
-        if let window = window, state != .disabled {
+        if let window = window, (state != .disabled || activeReminderTask != nil) {
             let windowWidth: CGFloat = 110
             let windowHeight: CGFloat = 110
             let origin = CGPoint(x: currentPos.x - windowWidth / 2, y: currentPos.y - windowHeight / 2)
@@ -323,18 +353,78 @@ public class PetViewModel: ObservableObject {
         }
     }
     
+    // MARK: - Task Scheduler Engine
+    
+    private func checkScheduledTasks() {
+        let now = Date()
+        for idx in scheduledTasks.indices {
+            let task = scheduledTasks[idx]
+            if task.isEnabled && !task.isCompleted && now >= task.dueDate {
+                // Trigger reminder!
+                triggerTaskReminder(task)
+                
+                // Update recurrence or completion
+                switch task.recurrence {
+                case .oneTime:
+                    scheduledTasks[idx].isCompleted = true
+                case .repetitive(let interval):
+                    scheduledTasks[idx].dueDate = now.addingTimeInterval(interval)
+                }
+                break
+            }
+        }
+    }
+    
+    public func triggerTaskReminder(_ task: ScheduledTask) {
+        activeReminderTask = task
+        statusMessage = "⏰ REMINDER: \(task.title)"
+        
+        // Auto-wake pet if sleeping or hidden
+        if state == .disabled || state == .home {
+            state = .active
+        }
+        if let win = window {
+            win.setIsVisible(true)
+            win.orderFront(nil)
+        }
+        
+        playSound()
+        spawnParticle(symbol: "⏰", xOffset: 0, yOffset: 35)
+        spawnParticle(symbol: "📝", xOffset: -20, yOffset: 20)
+        spawnParticle(symbol: "✨", xOffset: 20, yOffset: 20)
+    }
+    
+    public func dismissActiveReminder() {
+        activeReminderTask = nil
+        statusMessage = "Reminder dismissed! ✅"
+        spawnParticle(symbol: "✅", xOffset: 0, yOffset: 25)
+    }
+    
+    public func addScheduledTask(title: String, recurrence: TaskRecurrence, delaySeconds: TimeInterval) {
+        let newTask = ScheduledTask(
+            title: title,
+            recurrence: recurrence,
+            dueDate: Date().addingTimeInterval(delaySeconds)
+        )
+        scheduledTasks.append(newTask)
+        statusMessage = "Scheduled task: \"\(title)\""
+        playSound()
+    }
+    
+    public func removeTask(id: UUID) {
+        scheduledTasks.removeAll(where: { $0.id == id })
+    }
+    
     public func throwBallFar() {
         guard let screen = NSScreen.main else { return }
         let visibleFrame = screen.visibleFrame
         
-        // Pick a far location across the screen (500pt - 850pt away!)
         let angle = Double.random(in: 0...(2 * .pi))
         let throwDistance = CGFloat.random(in: 500...850)
         
         var targetX = currentPos.x + cos(angle) * throwDistance
         var targetY = currentPos.y + sin(angle) * throwDistance
         
-        // Clamp to screen bounds with padding so ball lands cleanly on screen
         let padding: CGFloat = 100
         targetX = max(visibleFrame.minX + padding, min(visibleFrame.maxX - padding, targetX))
         targetY = max(visibleFrame.minY + padding, min(visibleFrame.maxY - padding, targetY))
@@ -374,8 +464,9 @@ public class PetViewModel: ObservableObject {
         spawnParticle(symbol: "💖", xOffset: 20, yOffset: 20)
         playSound()
         
-        if state == .catchGame && fetchPhase == .idle {
-            // Throw ball far across the screen!
+        if activeReminderTask != nil {
+            dismissActiveReminder()
+        } else if state == .catchGame && fetchPhase == .idle {
             throwBallFar()
         } else if isSleeping {
             isSleeping = false
@@ -403,6 +494,7 @@ public class PetViewModel: ObservableObject {
     }
     
     private func spawnParticle(symbol: String, xOffset: CGFloat, yOffset: CGFloat) {
+        guard particles.count < 25 else { return } // Memory cap optimization
         let p = Particle(
             x: currentPos.x + xOffset,
             y: currentPos.y + yOffset,
