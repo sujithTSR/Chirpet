@@ -1,4 +1,4 @@
-# 🐾 DesktopPet - Native macOS Floating Companion & Fetch Game
+# 🐾 Chirpet - Native macOS Floating Companion & Fetch Game
 
 > A vibrant, interactive, transparent macOS desktop pet companion built natively with **Swift**, **AppKit**, and **SwiftUI**. Your pet floats over all desktop windows and virtual spaces, follows your mouse pointer, fetches tennis balls across your screen, carries text notes, and rests cozy in screen corners!
 
@@ -43,11 +43,13 @@
 ## 📁 Project Structure
 
 ```text
-DesktopPet/
+Chirpet/
 ├── Package.swift               # Swift Package Manager Manifest (macOS 13.0+)
-├── README.md                   # Complete Documentation & Features Showcase
+├── README.md                   # Documentation & Features Showcase
+├── Chirpet.app                 # Standalone macOS Application Bundle
+├── Chirpet.dmg                 # Disk Image Installer
 └── Sources/
-    └── DesktopPet/
+    └── Chirpet/
         ├── App.swift           # Application entry point (@main) & NSApplicationDelegate
         ├── PetPanel.swift      # Borderless transparent NSPanel with precise hit-testing
         ├── BallPanel.swift     # Standalone floating tennis ball window & spin animation
@@ -66,19 +68,20 @@ DesktopPet/
 
 ### Build & Run Instructions
 
-1. Open your terminal and navigate to the project directory:
+1. Navigate to the repository root directory:
    ```bash
-   cd /Users/sujitroyal/Documents/PersonalProjects/DesktopPet
+   cd Chirpet
    ```
 
-2. Build the project:
+2. Build and run the debug executable:
    ```bash
    swift build
+   swift run
    ```
 
-3. Launch DesktopPet:
+3. (Optional) Build the release binary & macOS `.app` bundle:
    ```bash
-   swift run
+   swift build -c release
    ```
 
 ---
@@ -92,7 +95,7 @@ DesktopPet/
 | **Drag Pet** | Click and drag the pet anywhere on screen |
 | **Attach / Edit Note** | Menu Bar 🐾 -> **Attach Text Note 📝** (or `⌘ + N`) |
 | **Pass-Through Clicks (Ghost Mode)** | Menu Bar 🐾 -> **Pass-Through Clicks** (or `⌘ + T`) |
-| **Quit Application** | Menu Bar 🐾 -> **Quit Desktop Pet** (or `⌘ + Q`) |
+| **Quit Application** | Menu Bar 🐾 -> **Quit Chirpet** (or `⌘ + Q`) |
 
 ---
 

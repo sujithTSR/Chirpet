@@ -1,0 +1,11 @@
+version: "Apple Swift version 6.1.2 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)"
+options: "90d46c4829b2c45637425b0661d8e0328747ab0f2f89251b306c686c117d203c"
+build_start_time: [1785250189, 85301000]
+build_end_time: [1785250193, 358554000]
+inputs:
+  "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/App.swift": [1785249644, 879954908]
+  "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/BallPanel.swift": [1785249609, 524284871]
+  "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/PetPanel.swift": [1785249094, 736708079]
+  "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/PetView.swift": [1785249743, 941873655]
+  "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/PetViewModel.swift": [1785249736, 835785011]
+  "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/DesktopPet/StatusBarMenu.swift": [1785249242, 244791737]

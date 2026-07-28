@@ -1,0 +1,11 @@
+version: "Apple Swift version 6.1.2 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)"
+options: "b557894233d49d5906d88cb47a3ceafea2a6c9d27f8f2c7877f078581fef69a1"
+build_start_time: [1785250471, 637285000]
+build_end_time: [1785250473, 336190000]
+inputs:
+  "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/App.swift": [1785250458, 650481561]
+  "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/BallPanel.swift": [1785249609, 524284871]
+  "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/PetPanel.swift": [1785249094, 736708079]
+  "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/PetView.swift": [1785249743, 941873655]
+  "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/PetViewModel.swift": [1785249736, 835785011]
+  "/Users/sujitroyal/Documents/PersonalProjects/DesktopPet/Sources/Chirpet/StatusBarMenu.swift": [1785250467, 352936055]
