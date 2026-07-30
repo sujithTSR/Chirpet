@@ -7,25 +7,29 @@ public class StatusBarMenuController: NSObject {
     private var statusItem: NSStatusItem?
     private var viewModel: PetViewModel
     private var cancellables = Set<AnyCancellable>()
+    public var currentMenu: NSMenu?
     
     public init(viewModel: PetViewModel) {
         self.viewModel = viewModel
         super.init()
         setupStatusItem()
         observeViewModel()
+        viewModel.statusBarController = self
     }
     
     private func setupStatusItem() {
-        statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+        // Use squareLength (~22px width) so macOS never hides item during FaceTime / Screen Sharing calls!
+        statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
+        statusItem?.autosaveName = "ChirpetStatusItem"
+        statusItem?.isVisible = true
         
         if let button = statusItem?.button {
             if let image = NSImage(systemSymbolName: "pawprint.fill", accessibilityDescription: "Chirpet") {
                 image.isTemplate = true
                 button.image = image
             }
-            button.title = " Pet"
-            button.imagePosition = .imageLeft
-            button.font = NSFont.systemFont(ofSize: 13, weight: .bold)
+            button.imagePosition = .imageOnly
+            button.toolTip = "Chirpet Desktop Pet Settings (Right-click pet anytime!)"
         }
         
         updateMenu()
@@ -57,6 +61,14 @@ public class StatusBarMenuController: NSObject {
         menu.addItem(petsCountItem)
         
         menu.addItem(NSMenuItem.separator())
+        
+        // Quick Throw Ball Action if in Play Catch Mode
+        if viewModel.state == .catchGame {
+            let throwBallItem = NSMenuItem(title: "🎾 Throw Ball Now!", action: #selector(throwBallAction), keyEquivalent: "b")
+            throwBallItem.target = self
+            menu.addItem(throwBallItem)
+            menu.addItem(NSMenuItem.separator())
+        }
         
         // Mode Options (Active, Play Catch, Home, Disabled)
         let modeHeader = NSMenuItem(title: "Select State / Mode:", action: nil, keyEquivalent: "")
@@ -218,7 +230,27 @@ public class StatusBarMenuController: NSObject {
         quitItem.target = self
         menu.addItem(quitItem)
         
+        currentMenu = menu
         statusItem?.menu = menu
+    }
+    
+    public func showMenuAtCursor() {
+        if let menu = currentMenu {
+            let dummyEvent = NSEvent.mouseEvent(
+                with: .rightMouseDown,
+                location: NSEvent.mouseLocation,
+                modifierFlags: [],
+                timestamp: ProcessInfo.processInfo.systemUptime,
+                windowNumber: 0,
+                context: nil,
+                eventNumber: 0,
+                clickCount: 1,
+                pressure: 1.0
+            ) ?? NSEvent()
+            
+            let dummyView = NSView(frame: .zero)
+            NSMenu.popUpContextMenu(menu, with: dummyEvent, for: dummyView)
+        }
     }
     
     @objc private func selectMode(_ sender: NSMenuItem) {
@@ -226,6 +258,11 @@ public class StatusBarMenuController: NSObject {
             viewModel.state = state
             updateMenu()
         }
+    }
+    
+    @objc private func throwBallAction() {
+        viewModel.throwBallFar()
+        updateMenu()
     }
     
     @objc private func toggleClickThrough() {

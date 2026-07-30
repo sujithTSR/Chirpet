@@ -117,9 +117,14 @@ public class PetViewModel: ObservableObject {
     
     public weak var window: NSWindow?
     public weak var ballWindow: NSWindow?
+    public weak var statusBarController: StatusBarMenuController?
     
     public init() {
         startTimer(fps: 30.0)
+    }
+    
+    public func showSettingsMenu() {
+        statusBarController?.showMenuAtCursor()
     }
     
     // MARK: - Automated Polished Demo Sequence (20s)
@@ -141,23 +146,19 @@ public class PetViewModel: ObservableObject {
                 demoTick += 1
                 let seconds = Double(demoTick) / 30.0
                 
-                // 1. Follow Cursor Smooth Movement (0s - 5s)
                 if seconds < 5.0 {
                     self.state = .active
                     let angle = seconds * 1.8
                     self.targetPos = CGPoint(x: midX + cos(angle) * 320, y: midY + sin(angle) * 180)
                 }
-                // 2. Throw and Fetch Ball (5s - 12s)
                 else if seconds >= 5.0 && seconds < 5.05 {
                     self.state = .catchGame
                     self.throwBallFar()
                 }
-                // 3. Create Reminder & Rest at Home (12s - 16s)
                 else if seconds >= 12.0 && seconds < 12.05 {
                     self.state = .home
                     self.addScheduledTask(title: "Stand Up & Stretch 🧘", recurrence: .oneTime, delaySeconds: 4.0)
                 }
-                // 4. Pet Wakes Up when Reminder Fires (16s - 21s)
                 else if seconds >= 21.0 {
                     print("🎬 Demo sequence complete.")
                     self.demoCancellable?.cancel()
@@ -213,10 +214,13 @@ public class PetViewModel: ObservableObject {
         case .catchGame:
             isSleeping = false
             fetchPhase = .idle
-            statusMessage = "Click pet to throw ball! 🎾"
+            statusMessage = "Throwing tennis ball! 🎾"
             if let win = window {
                 win.setIsVisible(true)
                 win.orderFront(nil)
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
+                self?.throwBallFar()
             }
         case .home:
             ballPos = nil
@@ -282,8 +286,8 @@ public class PetViewModel: ObservableObject {
                     facingLeft = bdx < 0
                     targetPos = currentPos
                     
-                    if bdist > 10 {
-                        ballPos = CGPoint(x: currentBall.x + bdx * 0.08, y: currentBall.y + bdy * 0.08)
+                    if bdist > 12 {
+                        ballPos = CGPoint(x: currentBall.x + bdx * 0.09, y: currentBall.y + bdy * 0.09)
                     } else {
                         ballPos = target
                         let pauseUntil = Date().addingTimeInterval(0.8)
@@ -309,7 +313,7 @@ public class PetViewModel: ObservableObject {
                         spawnParticle(symbol: "💨", xOffset: facingLeft ? 20 : -20, yOffset: -10)
                     }
                     
-                    if distToBall < 25 {
+                    if distToBall < 30 {
                         isHoldingBall = true
                         ballPos = nil
                         ballTargetPos = nil
@@ -340,7 +344,7 @@ public class PetViewModel: ObservableObject {
                 if distToCursor < 35 {
                     isHoldingBall = false
                     fetchPhase = .idle
-                    statusMessage = "Dropped ball! Click pet to throw again 🎾"
+                    statusMessage = "Dropped ball! Click pet or menu to throw again 🎾"
                     spawnParticle(symbol: "❤️", xOffset: 0, yOffset: 20)
                 }
             }
@@ -367,7 +371,7 @@ public class PetViewModel: ObservableObject {
         let distance = hypot(dx, dy)
         
         if distance > 10 && !isSleeping {
-            let actualSpeed = (fetchPhase == .sprintingToBall) ? max(CGFloat(followSpeed), 0.20) : CGFloat(followSpeed)
+            let actualSpeed = (fetchPhase == .sprintingToBall) ? max(CGFloat(followSpeed), 0.22) : CGFloat(followSpeed)
             currentPos.x += dx * actualSpeed
             currentPos.y += dy * actualSpeed
             isMoving = true
@@ -399,7 +403,6 @@ public class PetViewModel: ObservableObject {
         // Update particles
         updateParticles()
         
-        // Spawn periodic Zzz particles when sleeping
         if isSleeping && frameCounter % 45 == 0 {
             spawnParticle(symbol: "💤", xOffset: facingLeft ? -15 : 15, yOffset: 25)
         }
@@ -465,11 +468,12 @@ public class PetViewModel: ObservableObject {
     }
     
     public func throwBallFar() {
-        guard let screen = NSScreen.main else { return }
+        let targetScreen = window?.screen ?? NSScreen.main ?? NSScreen.screens.first
+        guard let screen = targetScreen else { return }
         let visibleFrame = screen.visibleFrame
         
         let angle = Double.random(in: 0...(2 * .pi))
-        let throwDistance = CGFloat.random(in: 500...850)
+        let throwDistance = CGFloat.random(in: 450...750)
         
         var targetX = currentPos.x + cos(angle) * throwDistance
         var targetY = currentPos.y + sin(angle) * throwDistance
@@ -483,11 +487,20 @@ public class PetViewModel: ObservableObject {
         isHoldingBall = false
         fetchPhase = .ballFlying
         statusMessage = "Watching ball fly across desktop... 🎾"
+        
+        if let ballWin = ballWindow {
+            let ballOrigin = CGPoint(x: currentPos.x - 30, y: currentPos.y - 30)
+            ballWin.setFrameOrigin(ballOrigin)
+            ballWin.setIsVisible(true)
+            ballWin.orderFront(nil)
+        }
+        
         playSound()
     }
     
     private func calculateHomePosition() -> CGPoint {
-        guard let screen = NSScreen.main else {
+        let targetScreen = window?.screen ?? NSScreen.main ?? NSScreen.screens.first
+        guard let screen = targetScreen else {
             return CGPoint(x: 1000, y: 100)
         }
         
@@ -515,7 +528,7 @@ public class PetViewModel: ObservableObject {
         
         if activeReminderTask != nil {
             dismissActiveReminder()
-        } else if state == .catchGame && fetchPhase == .idle {
+        } else if state == .catchGame {
             throwBallFar()
         } else if isSleeping {
             isSleeping = false
